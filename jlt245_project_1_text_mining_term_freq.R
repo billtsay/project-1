@@ -1,4 +1,6 @@
 NAME = "trump"
+library(stringr)
+library(tm)
 
 fn = str_c("jlt245_project_1_text_mining_tdm_", NAME, ".RData") 
 load(file = fn)

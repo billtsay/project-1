@@ -1,7 +1,15 @@
 
-install.packages(c("wordcloud", "brewer", "RColorBrewer"))
+install.packages(c("wordcloud", "RColorBrewer"))
+
+NAME = "hillary"
+library(stringr)
+library(RColorBrewer)
+
+fn = str_c("jlt245_project_1_text_mining_tdm_", NAME, ".RData") 
+load(file = fn)
 
 set.seed(201)
+
 dark2 <- brewer.pal(5, "Dark2")
 
 library(wordcloud)
