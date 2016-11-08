@@ -7,7 +7,7 @@ if (length(args)==0) {
 # This script will run three times with NAME = "election", "hillary" and "trump", and generates TDM files for each.
 NAME = args[1]    
 
-NAME = "election"
+# NAME = "election"
 # NAME = "hillary"
 # NAME = "trump"
 
