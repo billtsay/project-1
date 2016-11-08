@@ -1,7 +1,18 @@
+#!/usr/bin/env Rscript
+args = commandArgs(trailingOnly=TRUE)
+if (length(args)==0) {
+  stop("One argument must be supplied (input file).n", call.=FALSE)
+}
 
-install.packages(c("wordcloud", "RColorBrewer"))
+# This script will run three times with NAME = "election", "hillary" and "trump", and generates TDM files for each.
+NAME = args[1]    
 
-NAME = "hillary"
+# NAME = "election"
+# NAME = "hillary"
+# NAME = "trump"
+
+setwd("~/project-1")
+
 library(stringr)
 library(RColorBrewer)
 
@@ -16,6 +27,9 @@ library(wordcloud)
 
 m <- as.matrix(tdm)
 wordFreq <- sort(rowSums(m), decreasing = T)
-# wordcloud(words = names(wordFreq), freq = wordFreq, min.freq = 50, random.order = F, colors = dark2)
-wordcloud(words = names(wordFreq), freq = wordFreq, min.freq = 100, scale = c(5, 2), rot.per=0.5, random.color = T, random.order = F, colors = dark2)
 
+pdf(str_c("jlt245_project_1_text_mining_wordcloud_", NAME, ".pdf"))
+# wordcloud(words = names(wordFreq), freq = wordFreq, min.freq = 50, random.order = F, colors = dark2)
+wordcloud(words = names(wordFreq), freq = wordFreq, min.freq = 50, scale = c(5, 2), rot.per=0.5, random.color = T, random.order = F, colors = dark2)
+
+dev.off()
